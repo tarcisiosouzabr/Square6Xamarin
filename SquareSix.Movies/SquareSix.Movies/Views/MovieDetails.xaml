@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SquareSix.Movies.Views.MovieDetails"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             BackgroundColor="#70000000">
+    <Frame Margin="20,30" BackgroundColor="#80DCDCDC" IsClippedToBounds="True" CornerRadius="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <ScrollView>
+            <StackLayout Padding="0">
+                <Frame IsClippedToBounds="True" CornerRadius="20" BackgroundColor="Transparent" Padding="0">
+                    <Image
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      HeightRequest="534"
+                      Aspect="AspectFill">
+                        <Image.Source>
+                            <UriImageSource
+                            Uri="{Binding Image}"
+                            CachingEnabled="True"/>
+                        </Image.Source>
+                    </Image>
+                </Frame>
+                <Label Text="{Binding MovieTitle}" FontFamily="RobotoMedium" TextColor="White"
+                            FontSize="28" HorizontalOptions="Start" />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                        Text="Released: "
+                                        TextColor="#A5A5A5"
+                                        FontSize="16"
+                                        FontFamily="RobotoMedium"/>
+                            <Span
+                                        Text="{Binding ReleaseDate, StringFormat='{0:MM/dd/yy}'}"
+                                        TextColor="White"
+                                        FontSize="16"
+                                        FontFamily="RobotoMedium"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <fRating:RatingBar x:Name="rating" IsEnabled="False" HorizontalOptions="Start" ImageWidth="30" ImageHeight="30" FlowDirection="LeftToRight" EmptyStarImage="emptystar" FillStarImage="fillstar" SelectedStarValue="{Binding Rating}" ></fRating:RatingBar>
+                <Label
+                            Text="{Binding VoteCount, StringFormat='{0} rating'}"
+                            FontSize="14"
+                            TextColor="#7107CC"
+                            FontFamily="RobotoMedium"
+                            HorizontalOptions="Start"/>
+                <Label
+                            Text="{Binding Overview}"
+                            TextColor="White"
+                            FontSize="14"
+                            FontFamily="RobotoMedium"/>
+                <Grid
+                            ColumnSpacing="29"
+                            ColumnDefinitions=".5*,.5*"
+                            Padding="0,10,0,16">
+                    <Button
+                                Grid.Column="0"
+                                HeightRequest="44"
+                                Text="Back"
+                                TextColor="White"
+                                CornerRadius="15"
+                                FontFamily="RobotoMedium"
+                                BorderColor="#7107CC"
+                                BorderWidth="3"
+                                Command="{Binding GoBackCommand}"
+                                BackgroundColor="Transparent"/>
+                    <Button
+                                Grid.Column="1"
+                                HeightRequest="44"
+                                Text="View Trailer"
+                                TextColor="White"
+                                CornerRadius="15"
+                                FontFamily="RobotoMedium"
+                                Command="{Binding OpenTrailerCommand}"
+                                BackgroundColor="#7107CC"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+
+</ContentPage>
