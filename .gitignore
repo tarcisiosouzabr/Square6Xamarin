@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/SquareSix.Movies/SquareSix.Movies/bin/Debug/netstandard2.0
+/SquareSix.Movies/SquareSix.Movies/obj
+/SquareSix.Movies/SquareSix.Movies.Android/bin/Debug
+/SquareSix.Movies/SquareSix.Movies.Android/obj
+/SquareSix.Movies/SquareSix.Movies.iOS/obj
+/SquareSix.Movies.Api/bin/Debug/netstandard2.0
+/SquareSix.Movies.Api/obj
