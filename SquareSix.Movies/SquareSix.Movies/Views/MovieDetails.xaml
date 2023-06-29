@@ -5,8 +5,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SquareSix.Movies.Views.MovieDetails"
              xmlns:fRating="clr-namespace:Rating;assembly=Rating"
-             BackgroundColor="#70000000">
-    <Frame Margin="20,30" BackgroundColor="#80DCDCDC" IsClippedToBounds="True" CornerRadius="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+             BackgroundColor="{StaticResource TransparentModal}">
+    <Frame Margin="20,30" BackgroundColor="{StaticResource TransparentModalFrame}" IsClippedToBounds="True" CornerRadius="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <ScrollView>
             <StackLayout Padding="0">
                 <Frame IsClippedToBounds="True" CornerRadius="20" BackgroundColor="Transparent" Padding="0">
@@ -22,19 +22,19 @@
                         </Image.Source>
                     </Image>
                 </Frame>
-                <Label Text="{Binding MovieTitle}" FontFamily="RobotoMedium" TextColor="White"
+                <Label Text="{Binding MovieTitle}" FontFamily="RobotoMedium" TextColor="{StaticResource White}"
                             FontSize="28" HorizontalOptions="Start" />
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
                             <Span
                                         Text="Released: "
-                                        TextColor="#A5A5A5"
+                                        TextColor="{StaticResource Gray}"
                                         FontSize="16"
                                         FontFamily="RobotoMedium"/>
                             <Span
                                         Text="{Binding ReleaseDate, StringFormat='{0:MM/dd/yy}'}"
-                                        TextColor="White"
+                                        TextColor="{StaticResource White}"
                                         FontSize="16"
                                         FontFamily="RobotoMedium"/>
                         </FormattedString>
@@ -44,12 +44,12 @@
                 <Label
                             Text="{Binding VoteCount, StringFormat='{0} rating'}"
                             FontSize="14"
-                            TextColor="#7107CC"
+                            TextColor="{StaticResource Purple}"
                             FontFamily="RobotoMedium"
                             HorizontalOptions="Start"/>
                 <Label
                             Text="{Binding Overview}"
-                            TextColor="White"
+                            TextColor="{StaticResource White}"
                             FontSize="14"
                             FontFamily="RobotoMedium"/>
                 <Grid
@@ -60,10 +60,10 @@
                                 Grid.Column="0"
                                 HeightRequest="44"
                                 Text="Back"
-                                TextColor="White"
+                                TextColor="{StaticResource White}"
                                 CornerRadius="15"
                                 FontFamily="RobotoMedium"
-                                BorderColor="#7107CC"
+                                BorderColor="{StaticResource Purple}"
                                 BorderWidth="3"
                                 Command="{Binding GoBackCommand}"
                                 BackgroundColor="Transparent"/>
@@ -75,7 +75,7 @@
                                 CornerRadius="15"
                                 FontFamily="RobotoMedium"
                                 Command="{Binding OpenTrailerCommand}"
-                                BackgroundColor="#7107CC"/>
+                                BackgroundColor="{StaticResource Purple}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

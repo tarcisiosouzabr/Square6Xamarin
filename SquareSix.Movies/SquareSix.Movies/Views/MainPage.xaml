@@ -4,14 +4,14 @@
              x:Class="SquareSix.Movies.Views.MainPage"
              xmlns:viewModels="clr-namespace:SquareSix.Movies.ViewModels"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#1A1A1A">
+             BackgroundColor="{StaticResource Black}">
 
     <Grid
         RowDefinitions="Auto,*"
         RowSpacing="10">
         <StackLayout
             Grid.Row="0"
-            BackgroundColor="#1A1A1A"
+            BackgroundColor="{StaticResource Black}"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
             <Label
@@ -23,12 +23,12 @@
                             FontSize="28"
                             Text="Movie"
                             FontFamily="RiftItalic"
-                            TextColor="#974bf0"/>
+                            TextColor="{StaticResource LightPurple}"/>
                         <Span
                             FontSize="28"
                             Text=" Time"
                             FontFamily="RiftItalic"
-                            TextColor="#7107CC"/>
+                            TextColor="{StaticResource Purple}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -36,13 +36,13 @@
         <RefreshView
              Grid.Row="1"
             IsRefreshing="{Binding IsRefreshing}"
-            RefreshColor="White"
+            RefreshColor="{StaticResource White}"
             Command="{Binding RefreshCommand}"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
             <Grid>
                 <CollectionView
-                    BackgroundColor="Black"
+                    BackgroundColor="{StaticResource Black}"
                     ItemsSource="{Binding GroupedMovies}"
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
@@ -50,7 +50,7 @@
                     <CollectionView.EmptyView>
                         <Label
                             Text="Loading Movies ....."
-                            TextColor="White"
+                            TextColor="{StaticResource White}"
                             VerticalOptions="CenterAndExpand"
                             HorizontalOptions="CenterAndExpand"/>
                     </CollectionView.EmptyView>
@@ -63,7 +63,7 @@
                                 <Label
                                     Text="{Binding GenreName}"
                                     FontSize="14"
-                                    TextColor="White"
+                                    TextColor="{StaticResource White}"
                                     FontFamily="RobotoMedium"/>
                                 <CollectionView
                                     ItemsSource="{Binding Movies}"
@@ -84,7 +84,7 @@
                                                     HorizontalOptions="Center"
                                                     IsClippedToBounds="True"
                                                     HasShadow="False"
-                                                    BorderColor="#7107CC"
+                                                    BorderColor="{StaticResource Purple}"
                                                     Padding="0"
                                                     Margin="10,0, 10 ,1">
                                                     <Frame.GestureRecognizers>
