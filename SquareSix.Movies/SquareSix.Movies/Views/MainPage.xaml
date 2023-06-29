@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SquareSix.Movies.Views.MainPage"
+             xmlns:viewModels="clr-namespace:SquareSix.Movies.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1A1A1A">
+
+    <Grid
+        RowDefinitions="Auto,*"
+        RowSpacing="10">
+        <StackLayout
+            Grid.Row="0"
+            BackgroundColor="#1A1A1A"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <Label
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontSize="28"
+                            Text="Movie"
+                            FontFamily="RiftItalic"
+                            TextColor="#974bf0"/>
+                        <Span
+                            FontSize="28"
+                            Text=" Time"
+                            FontFamily="RiftItalic"
+                            TextColor="#7107CC"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+        <RefreshView
+             Grid.Row="1"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="White"
+            Command="{Binding RefreshCommand}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <Grid>
+                <CollectionView
+                    BackgroundColor="Black"
+                    ItemsSource="{Binding GroupedMovies}"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0">
+                    <CollectionView.EmptyView>
+                        <Label
+                            Text="Loading Movies ....."
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"/>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                VerticalOptions="FillAndExpand"
+                                Padding="16,10,5,10"
+                                Spacing="10">
+                                <Label
+                                    Text="{Binding GenreName}"
+                                    FontSize="14"
+                                    TextColor="White"
+                                    FontFamily="RobotoMedium"/>
+                                <CollectionView
+                                    ItemsSource="{Binding Movies}"
+                                    ItemsLayout="HorizontalList"
+                                     HeightRequest="300"
+                                    HorizontalOptions="FillAndExpand">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=MovieSelectedCommand}"
+                                                        CommandParameter="{Binding .}"/>
+                                                </ContentView.GestureRecognizers>
+                                                <Frame
+                                                    CornerRadius="10"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="Center"
+                                                    IsClippedToBounds="True"
+                                                    HasShadow="False"
+                                                    BorderColor="#7107CC"
+                                                    Padding="0"
+                                                    Margin="10,0, 10 ,1">
+                                                    <Frame.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=MovieSelectedCommand}"
+                                                            CommandParameter="{Binding .}"/>
+                                                    </Frame.GestureRecognizers>
+                                                    
+                                                    <Image
+                                                        HorizontalOptions="FillAndExpand"
+                                                        VerticalOptions="FillAndExpand"
+                                                        WidthRequest="190"
+                                                        HeightRequest="252"
+                                                        Margin="0.3,0.3, 0.3 ,0.5"
+                                                        Aspect="Fill">
+                                                            <Image.Source>
+                                                                <UriImageSource
+                                                                Uri="{Binding PosterImg}"
+                                                                CachingEnabled="True"/>
+                                                            </Image.Source>
+                                                        </Image>
+                                                </Frame>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </RefreshView>
+    </Grid>
+
+</ContentPage>
