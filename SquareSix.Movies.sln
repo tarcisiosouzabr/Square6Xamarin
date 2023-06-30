@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareSix.Movies", "SquareSix.Movies\SquareSix.Movies\SquareSix.Movies.csproj", "{423EE0C9-5CBE-435D-8E81-4CFDC73D99ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareSix.Movies", "SquareSix.Movies\SquareSix.Movies\SquareSix.Movies.csproj", "{423EE0C9-5CBE-435D-8E81-4CFDC73D99ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareSix.Movies.Android", "SquareSix.Movies\SquareSix.Movies.Android\SquareSix.Movies.Android.csproj", "{41F37F56-AB7F-43D2-9CB1-8A9F8D08FEDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareSix.Movies.iOS", "SquareSix.Movies\SquareSix.Movies.iOS\SquareSix.Movies.iOS.csproj", "{66E1C019-AD12-4EDB-BD13-F6F1B3FC7993}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareSix.Movies.Api", "SquareSix.Movies.Api\SquareSix.Movies.Api.csproj", "{0F406F77-78C3-41F6-BB0A-2E188C731621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareSix.Movies.Api", "SquareSix.Movies.Api\SquareSix.Movies.Api.csproj", "{0F406F77-78C3-41F6-BB0A-2E188C731621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FC80ECF0-6109-4280-A08E-3BC381CAACBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareSix.Movies.Test", "SquareSix.Movies.Test\SquareSix.Movies.Test.csproj", "{EEB77CD3-BF12-49C8-BB07-6BE499B08507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,9 +139,36 @@ Global
 		{0F406F77-78C3-41F6-BB0A-2E188C731621}.Release|iPhone.Build.0 = Release|Any CPU
 		{0F406F77-78C3-41F6-BB0A-2E188C731621}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{0F406F77-78C3-41F6-BB0A-2E188C731621}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|iPhone.Build.0 = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EEB77CD3-BF12-49C8-BB07-6BE499B08507} = {FC80ECF0-6109-4280-A08E-3BC381CAACBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D306AA5B-F3E0-4CF3-9318-01FA772B1A17}

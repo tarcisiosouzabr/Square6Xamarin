@@ -118,7 +118,7 @@ namespace SquareSix.Movies.ViewModels
             {
                 var navParams = new NavigationParameters
                 {
-                    { "movieId", JsonConvert.SerializeObject(movie.Id) }
+                    { "movieId", movie.Id }
                 };
                 await NavigationService.NavigateAsync("MovieDetails", navParams, true);
             }
