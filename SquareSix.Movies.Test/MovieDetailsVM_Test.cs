@@ -1,5 +1,6 @@
 ﻿using Moq;
 using Prism.Navigation;
+using Prism.Services;
 using SquareSix.Movies.Test.MockService;
 using SquareSix.Movies.ViewModels;
 using System;
@@ -16,7 +17,9 @@ namespace SquareSix.Movies.Test
         public void GoBackCommandIsNotNullTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object);
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+
+            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object, mockDialogService.Object);
 
             Assert.NotNull(mainViewModel.GoBackCommand);
         }
@@ -25,7 +28,9 @@ namespace SquareSix.Movies.Test
         public void OpenTrailerCommandIsNotNullTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object);
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+
+            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object, mockDialogService.Object);
 
             Assert.NotNull(mainViewModel.OpenTrailerCommand);
         }
@@ -33,8 +38,9 @@ namespace SquareSix.Movies.Test
         [Fact]
         public void ShoudlFillTitleAfterNavigateTest()
         {
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object);
+            var mainViewModel = new MovieDetailsViewModel(new MoviesMockService(), mockNavigationService.Object, mockDialogService.Object);
 
             mainViewModel.OnNavigatedTo(new NavigationParameters() { { "movieId", 1 } });
 

@@ -1,5 +1,6 @@
 ﻿using Moq;
 using Prism.Navigation;
+using Prism.Services;
 using SquareSix.Movies.Test.MockService;
 using SquareSix.Movies.ViewModels;
 
@@ -11,7 +12,8 @@ namespace SquareSix.Movies.Test
         public void RefreshCommandIsNotNullTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
 
             Assert.NotNull(mainViewModel.RefreshCommand);
         }
@@ -20,7 +22,8 @@ namespace SquareSix.Movies.Test
         public void MovieSelectedCommandIsNotNullTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
 
             Assert.NotNull(mainViewModel.MovieSelectedCommand);
         }
@@ -30,7 +33,9 @@ namespace SquareSix.Movies.Test
         public void GroupedMoviesIsNotNullTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
 
             Assert.NotNull(mainViewModel.GroupedMovies);
         }
@@ -39,7 +44,9 @@ namespace SquareSix.Movies.Test
         public void IsRefreshingPropertyIsFalseWhenViewModelInstantiatedTest()
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
 
             Assert.False(mainViewModel.IsRefreshing);
         }
@@ -49,7 +56,9 @@ namespace SquareSix.Movies.Test
         {
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
             Mock<INavigationParameters> mockNavParams = new Mock<INavigationParameters>();
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
+
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
 
             mainViewModel.OnNavigatedTo(mockNavParams.Object);
 
@@ -62,8 +71,9 @@ namespace SquareSix.Movies.Test
             Mock<INavigationService> mockNavigationService = new Mock<INavigationService>();
             Mock<INavigationParameters> mockNavParams = new Mock<INavigationParameters>();
             mockNavigationService.Setup(a => a.NavigateAsync(It.IsAny<string>(), It.IsAny<INavigationParameters>(), It.IsAny<bool>(), It.IsAny<bool>()));
+            Mock<IPageDialogService> mockDialogService = new Mock<IPageDialogService>();
 
-            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService());
+            var mainViewModel = new MainPageViewModel(mockNavigationService.Object, new MoviesMockService(), mockDialogService.Object);
             mainViewModel.MovieSelectedCommand.Execute(new Api.Responses.Movies { Id = 1 });
 
             mockNavigationService.Verify(x => x.NavigateAsync(It.IsAny<string>(), It.IsAny<INavigationParameters>(), It.IsAny<bool>(), It.IsAny<bool>()), Times.Once());

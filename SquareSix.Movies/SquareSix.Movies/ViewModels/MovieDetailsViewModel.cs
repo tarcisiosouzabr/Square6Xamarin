@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using SquareSix.Movies.Api.Responses;
 using SquareSix.Movies.Api.Services;
 using SquareSix.Movies.Views;
@@ -63,9 +64,11 @@ namespace SquareSix.Movies.ViewModels
 
         private readonly IMovieService _movieService;
         private MovieDetailsResponse _movieDetail;
-        public MovieDetailsViewModel(IMovieService movieService, INavigationService navigationService) : base (navigationService) 
+        private readonly IPageDialogService _pageDialogService;
+        public MovieDetailsViewModel(IMovieService movieService, INavigationService navigationService, IPageDialogService pageDialogService) : base (navigationService) 
         {
             _movieService = movieService;
+            _pageDialogService = pageDialogService;
             GoBackCommand = new DelegateCommand(async () => await GoBackAsync());
             OpenTrailerCommand = new DelegateCommand(async ()=> await OpenTrailer());
         }
@@ -82,7 +85,7 @@ namespace SquareSix.Movies.ViewModels
             }
             catch (Exception ex)
             {
-
+                await _pageDialogService.DisplayAlertAsync($"Oh no. Some error ocurred",  $"{ex.Message}", "close");
             }
         }
 

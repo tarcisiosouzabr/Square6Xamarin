@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using SquareSix.Movies.Api.Responses;
 using SquareSix.Movies.Api.Services;
 using SquareSix.Movies.Models;
@@ -32,10 +33,12 @@ namespace SquareSix.Movies.ViewModels
         public DelegateCommand<Api.Responses.Movies> MovieSelectedCommand { get; private set; }
 
         private readonly IMovieService _movieService;
-        public MainPageViewModel(INavigationService navigationService, IMovieService movieService)
+        private readonly IPageDialogService _pageDialogService;
+        public MainPageViewModel(INavigationService navigationService, IMovieService movieService, IPageDialogService pageDialogService)
             : base(navigationService)
         {
             _movieService = movieService;
+            _pageDialogService = pageDialogService;
             Movies = new List<Api.Responses.Movies>();
             Genres = new List<Genre>();
             GroupedMovies = new ObservableCollection<MovieList>();
@@ -61,7 +64,7 @@ namespace SquareSix.Movies.ViewModels
             }
             catch (Exception ex)
             {
-
+                await _pageDialogService.DisplayAlertAsync($"Oh no. Some error ocurred", $"{ex.Message}", "close");
             }
         }
 
@@ -77,7 +80,7 @@ namespace SquareSix.Movies.ViewModels
             }
             catch (Exception ex)
             {
-
+                await _pageDialogService.DisplayAlertAsync($"Oh no. Some error ocurred", $"{ex.Message}", "close");
             }
         }
 
