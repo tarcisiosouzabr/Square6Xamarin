@@ -11,3 +11,5 @@
 /SquareSix.Movies.Api/bin/Debug/netstandard2.0
 /SquareSix.Movies.Api/obj
 /SquareSix.Movies/SquareSix.Movies.iOS/bin/iPhoneSimulator/Debug
+/SquareSix.Movies.Test/bin/Debug/net6.0
+/SquareSix.Movies.Test/obj
